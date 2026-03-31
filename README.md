@@ -1,6 +1,6 @@
-# 🧠 Claude Certified Architect – Study Guide
+# 🧠 Claude Certified Architect — Exam Prep Guide
 
-**A single-page, offline-ready study guide covering all 10 exam domains, with interactive quizzes and a cheat sheet.**
+**A single-page, offline-ready study guide covering all 5 official exam domains across 10 focused sections, with interactive quizzes and a cheat sheet.**
 
 ![HTML](https://img.shields.io/badge/HTML-single_file-E34F26?logo=html5&logoColor=white)
 ![Offline](https://img.shields.io/badge/works-fully_offline-green)
@@ -8,7 +8,7 @@
 
 ## The Problem
 
-The Claude Certified Architect exam spans 10 domains — from the Messages API and tool design to Agent SDK patterns and MCP. The official prep material is spread across docs, cheat sheets, and guides. There's no single place to study everything, test yourself, and review traps in one sitting — especially offline.
+The Claude Certified Architect exam covers 5 official domains — from Tool Design & MCP to Agentic Architecture & Orchestration. The official prep material is spread across docs, cheat sheets, and guides. There's no single place to study everything, test yourself, and review traps in one sitting — especially offline.
 
 ## What It Does
 
@@ -16,11 +16,21 @@ A self-contained HTML page hosted on GitHub Pages — or download and open local
 
 | Feature | Details |
 |---|---|
-| **10 domain sections** | Messages API, Tool Design, Error Handling, Context Management, Agent Skills, Agent SDK, MCP, Prompt Engineering, Agentic Patterns, Workflow Design |
+| **5 domains, 10 sections** | Each official exam domain is broken into focused sections — see mapping below |
 | **Self-test quiz** | 15 exam-style questions with immediate feedback and explanations |
 | **Traps & Gotchas** | Side-by-side correct vs. wrong answers for common exam traps |
-| **Cheat sheet** | Quick-reference tables for every domain |
+| **Cheat sheet** | Quick-reference tables for every section |
 | **Dark mode** | Automatic via `prefers-color-scheme` |
+
+### Domain → Section Mapping
+
+| Official Exam Domain | Weight | Guide Sections |
+| --- | --- | --- |
+| Tool Design & MCP Integration | 18% | 1. Messages API, 2. Tool Design, 3. Error Handling, 4. MCP |
+| Claude Code Configuration & Workflows | 20% | 5. Agent Skills |
+| Agentic Architecture & Orchestration | 27% | 6. Agent SDK, 7. Agentic Patterns, 8. Workflows |
+| Prompt Engineering & Structured Output | 20% | 9. Prompt Engineering |
+| Context Management & Reliability | 15% | 10. Context Management |
 
 ## Demo
 
@@ -29,9 +39,9 @@ A self-contained HTML page hosted on GitHub Pages — or download and open local
 │  Overview  1. Messages API  2. Tool Design  ...     │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
-│  ● Total domains    10 topics                       │
-│  ● Top area         Agent SDK (27%)                 │
-│  ● Tools + MCP      18% each                        │
+│  ● Exam domains     5 official                      │
+│  ● Guide sections   10 focused topics               │
+│  ● Top weight       Agentic Architecture (27%)      │
 │  ● Core model       Stateless API                   │
 │                                                     │
 │  [1] Messages API & Stop Reasons        18%  ██▌    │
