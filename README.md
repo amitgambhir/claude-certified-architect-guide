@@ -79,4 +79,16 @@ open claude-certified-architect-guide/index.html
 - **Exam-focused, not docs-focused** — organized by exam weight, with traps and gotchas called out explicitly.
 - **Interactive self-testing** — quiz with explanations tells you exactly why each wrong answer is wrong.
 
+## Contributing
+
+Found a mistake? Have a better explanation for a tricky concept? Contributions are welcome.
+
+1. Fork this repo
+2. Edit `index.html` (everything lives in one file)
+3. Open a pull request with a clear description of what changed and why
+
+Good contributions: fixing incorrect answers, adding missing exam topics, improving quiz explanations, accessibility improvements.
+
+If this guide helped you study, consider giving it a star.
+
 *Built to pass the exam, not to explain the docs.*
