@@ -146,13 +146,13 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
   <button class="nav-btn" onclick="show('messages')">1. Messages API</button>
   <button class="nav-btn" onclick="show('tools')">2. Tool Design</button>
   <button class="nav-btn" onclick="show('errors')">3. Error Handling</button>
-  <button class="nav-btn" onclick="show('context')">4. Context Mgmt</button>
+  <button class="nav-btn" onclick="show('mcp')">4. MCP</button>
   <button class="nav-btn" onclick="show('agentskills')">5. Agent Skills</button>
   <button class="nav-btn" onclick="show('agentsdk')">6. Agent SDK</button>
-  <button class="nav-btn" onclick="show('mcp')">7. MCP</button>
-  <button class="nav-btn" onclick="show('prompts')">8. Prompt Eng.</button>
-  <button class="nav-btn" onclick="show('agentic')">9. Agentic Patterns</button>
-  <button class="nav-btn" onclick="show('workflow')">10. Workflows</button>
+  <button class="nav-btn" onclick="show('agentic')">7. Agentic Patterns</button>
+  <button class="nav-btn" onclick="show('workflow')">8. Workflows</button>
+  <button class="nav-btn" onclick="show('prompts')">9. Prompt Eng.</button>
+  <button class="nav-btn" onclick="show('context')">10. Context Mgmt</button>
   <button class="nav-btn" onclick="show('gotchas')">⚡ Traps & Gotchas</button>
   <button class="nav-btn" onclick="show('quiz')">Self-test Quiz</button>
   <button class="nav-btn" onclick="show('cheat')">Cheat Sheet</button>
@@ -172,17 +172,37 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
   </div>
 
   <div class="card">
-    <div class="ch" onclick="tog(this)"><div><div class="ct">The 5 official exam domains</div><div class="cs">With weightings — this is what the exam actually tests</div></div><span class="ti">+</span></div>
+    <div class="ch" onclick="tog(this)"><div><div class="ct">The 5 official domains → how this guide covers them</div><div class="cs">Each official domain maps to one or more sections in this guide</div></div><span class="ti">+</span></div>
     <div class="cb">
+      <div class="alert info" style="margin-bottom:12px"><p>Domains 1 and 3 together account for <strong>47%</strong> of the exam. The single most tested concept is <strong>programmatic enforcement vs. prompt-based enforcement</strong>.</p></div>
       <table class="kv">
-        <tr><th>Domain</th><th>Topic</th><th class="v2">Weight</th></tr>
-        <tr><td>Domain 1</td><td>Agentic Architecture & Orchestration</td><td><strong>27%</strong></td></tr>
-        <tr><td>Domain 2</td><td>Tool Design & MCP Integration</td><td><strong>18%</strong></td></tr>
-        <tr><td>Domain 3</td><td>Claude Code Configuration & Workflows</td><td><strong>20%</strong></td></tr>
-        <tr><td>Domain 4</td><td>Prompt Engineering & Structured Output</td><td><strong>20%</strong></td></tr>
-        <tr><td>Domain 5</td><td>Context Management & Reliability</td><td><strong>15%</strong></td></tr>
+        <tr><th>Official Domain</th><th>Weight</th><th>Guide Sections</th></tr>
+        <tr>
+          <td>Tool Design &amp; MCP Integration</td>
+          <td><strong>18%</strong></td>
+          <td><span class="tag" style="background:var(--blue-bg);color:var(--blue-text)">1. Messages API</span> <span class="tag" style="background:var(--blue-bg);color:var(--blue-text)">2. Tool Design</span> <span class="tag" style="background:var(--blue-bg);color:var(--blue-text)">3. Error Handling</span> <span class="tag" style="background:var(--blue-bg);color:var(--blue-text)">4. MCP</span></td>
+        </tr>
+        <tr>
+          <td>Claude Code Configuration &amp; Workflows</td>
+          <td><strong>20%</strong></td>
+          <td><span class="tag" style="background:var(--purple-bg);color:var(--purple-text)">5. Agent Skills</span></td>
+        </tr>
+        <tr>
+          <td>Agentic Architecture &amp; Orchestration</td>
+          <td><strong>27%</strong></td>
+          <td><span class="tag" style="background:var(--coral-bg);color:var(--coral-text)">6. Agent SDK</span> <span class="tag" style="background:var(--coral-bg);color:var(--coral-text)">7. Agentic Patterns</span> <span class="tag" style="background:var(--coral-bg);color:var(--coral-text)">8. Workflows</span></td>
+        </tr>
+        <tr>
+          <td>Prompt Engineering &amp; Structured Output</td>
+          <td><strong>20%</strong></td>
+          <td><span class="tag" style="background:var(--green-bg);color:var(--green-text)">9. Prompt Engineering</span></td>
+        </tr>
+        <tr>
+          <td>Context Management &amp; Reliability</td>
+          <td><strong>15%</strong></td>
+          <td><span class="tag" style="background:var(--amber-bg);color:var(--amber-text)">10. Context Management</span></td>
+        </tr>
       </table>
-      <div class="alert info" style="margin-top:10px"><p>Domains 1 and 3 together account for <strong>47%</strong> of the exam. The single most tested concept across the entire exam is <strong>programmatic enforcement vs. prompt-based enforcement</strong>.</p></div>
     </div>
   </div>
 
@@ -994,16 +1014,16 @@ options = ClaudeAgentOptions(<span class="kw">max_budget_usd</span>=0.50)
 
 <script>
 const domains=[
-  {id:'messages',num:1,title:'Messages API & Stop Reasons',weight:18,bg:'#E6F1FB',tc:'#0C447C',tags:['stop reasons','tool_use loop','tool_choice','parallel tools'],note:'Memorize all 7 stop reasons. stop_reason ≠ error. tool_choice options. Parallel tool rules.'},
-  {id:'tools',num:2,title:'Tool Interface Design',weight:18,bg:'#E6F1FB',tc:'#0C447C',tags:['descriptions','nullable fields','tool_use > JSON','two-tool safety'],note:'Descriptions drive selection. Nullable fields prevent hallucination. tool_use beats JSON mode.'},
-  {id:'errors',num:3,title:'Error Handling',weight:18,bg:'#FAEEDA',tc:'#854F0B',tags:['transient','permanent','uncertain state','isError flag'],note:'Three error types — treat each differently. Structured returns. Never throw exceptions.'},
-  {id:'context',num:4,title:'Context Management',weight:15,bg:'#EAF3DE',tc:'#3B6D11',tags:['recency bias','compaction','provenance','scratchpad'],note:'Most important info goes last. SDK compaction. Preserve conflicting sources with attribution.'},
-  {id:'agentskills',num:5,title:'Agent Skills (Claude Code)',weight:20,bg:'#EEEDFE',tc:'#3C3489',tags:['CLAUDE.md hierarchy','path-scoped rules','context: fork','plan mode'],note:'CLAUDE.md levels. .claude/rules/ for per-area conventions. context: fork prevents pollution.'},
-  {id:'agentsdk',num:6,title:'Agent SDK',weight:27,bg:'#FAECE7',tc:'#993C1D',tags:['5-step loop','max_turns','max_budget_usd','escalation triggers'],note:'Highest exam weight (27%). 5-step agent loop. Cost controls. 3 escalation conditions.'},
-  {id:'mcp',num:7,title:'MCP',weight:18,bg:'#E1F5EE',tc:'#0F6E56',tags:['mcp.json','API connector','descriptions','trust model'],note:'mcp.json structure. API-level connector. Poor descriptions = non-adoption.'},
-  {id:'prompts',num:8,title:'Prompt Engineering',weight:20,bg:'#EEEDFE',tc:'#3C3489',tags:['principles vs conditionals','dilution','few-shot','versioning'],note:'Influence dilutes even in short conversations. Few-shot > verbose rules. Sent every request.'},
-  {id:'agentic',num:9,title:'Agentic Patterns',weight:20,bg:'#FAECE7',tc:'#993C1D',tags:['chaining','routing','orchestrator-workers','dynamic'],note:'Match pattern to task type. Investigative → dynamic. Fixed → chaining.'},
-  {id:'workflow',num:10,title:'Workflow Design',weight:20,bg:'#F1EFE8',tc:'#444441',tags:['escalation logic','enforcement spectrum','compliance','partial resolution'],note:'Hard compliance = programmatic enforcement. Acknowledge before acting.'},
+  {id:'messages',   num:1,  title:'Messages API & Stop Reasons',        weight:18, bg:'#E6F1FB',tc:'#0C447C', tags:['stop reasons','tool_choice','tool use loop','parallel tools'],   note:'Memorize all 7 stop reasons. stop_reason ≠ error. tool_choice options. Parallel tool rules.'},
+  {id:'tools',      num:2,  title:'Tool Interface Design',               weight:18, bg:'#E6F1FB',tc:'#0C447C', tags:['descriptions','nullable fields','tool_use > JSON','two-tool safety'], note:'Descriptions drive selection. Nullable fields prevent hallucination. tool_use beats JSON mode.'},
+  {id:'errors',     num:3,  title:'Error Handling',                      weight:18, bg:'#E6F1FB',tc:'#0C447C', tags:['transient','permanent','uncertain state','isError flag'],        note:'Three error types — treat each differently. Structured returns. Never throw exceptions.'},
+  {id:'mcp',        num:4,  title:'MCP — Model Context Protocol',        weight:18, bg:'#E6F1FB',tc:'#0C447C', tags:['mcp.json','API connector','descriptions','trust model'],         note:'mcp.json structure. API-level connector. Poor descriptions = non-adoption.'},
+  {id:'agentskills', num:5, title:'Agent Skills — Claude Code',          weight:20, bg:'#EEEDFE',tc:'#3C3489', tags:['CLAUDE.md hierarchy','path-scoped rules','context: fork','plan mode'], note:'CLAUDE.md levels. .claude/rules/ for per-area conventions. context: fork prevents pollution.'},
+  {id:'agentsdk',   num:6,  title:'Agent SDK',                           weight:27, bg:'#FAECE7',tc:'#993C1D', tags:['5-step loop','max_turns','max_budget_usd','escalation triggers'], note:'Highest exam weight (27%). 5-step agent loop. Cost controls. 3 escalation conditions.'},
+  {id:'agentic',    num:7,  title:'Agentic Patterns & Decomposition',    weight:27, bg:'#FAECE7',tc:'#993C1D', tags:['chaining','routing','orchestrator-workers','dynamic'],            note:'Match pattern to task type. Investigative → dynamic. Fixed → chaining.'},
+  {id:'workflow',   num:8,  title:'Workflow Design',                     weight:27, bg:'#FAECE7',tc:'#993C1D', tags:['escalation logic','enforcement spectrum','compliance','partial resolution'], note:'Hard compliance = programmatic enforcement. Acknowledge before acting.'},
+  {id:'prompts',    num:9,  title:'Prompt Engineering & System Prompts', weight:20, bg:'#EAF3DE',tc:'#3B6D11', tags:['principles vs conditionals','dilution','few-shot','versioning'],  note:'Influence dilutes even in short conversations. Few-shot > verbose rules. Sent every request.'},
+  {id:'context',    num:10, title:'Context Management & Reliability',    weight:15, bg:'#FAEEDA',tc:'#854F0B', tags:['recency bias','compaction','provenance','scratchpad'],            note:'Most important info goes last. SDK compaction. Preserve conflicting sources with attribution.'},
 ];
 
 const dc=document.getElementById('domain-cards');
@@ -1092,7 +1112,7 @@ function show(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('s-'+id).classList.add('active');
-  const order=['overview','examinfo','messages','tools','errors','context','agentskills','agentsdk','mcp','prompts','agentic','workflow','gotchas','quiz','cheat'];
+  const order=['overview','examinfo','messages','tools','errors','mcp','agentskills','agentsdk','agentic','workflow','prompts','context','gotchas','quiz','cheat'];
   const idx=order.indexOf(id);
   if(idx>=0)document.querySelectorAll('.nav-btn')[idx].classList.add('active');
   if(id==='quiz')renderQuiz();
