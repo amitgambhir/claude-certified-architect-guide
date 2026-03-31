@@ -108,8 +108,10 @@ table.kv td.v2{width:32%}
 .qfb{font-size:13px;padding:10px 12px;border-radius:var(--radius);margin-top:8px;line-height:1.5;display:none}
 .qfb-ok{background:var(--success-bg);color:var(--success-text)}
 .qfb-bad{background:var(--danger-bg);color:var(--danger-text)}
-.next-btn{margin-top:10px;padding:8px 18px;border:1px solid var(--border2);border-radius:var(--radius);background:var(--bg2);color:var(--text);cursor:pointer;font-size:13px;display:none}
-.next-btn:hover{background:var(--bg3)}
+.quiz-nav{display:flex;gap:8px;margin-top:10px}
+.next-btn,.prev-btn{padding:8px 18px;border:1px solid var(--border2);border-radius:var(--radius);background:var(--bg2);color:var(--text);cursor:pointer;font-size:13px;display:none}
+.next-btn:hover,.prev-btn:hover{background:var(--bg3)}
+.quiz-opt.selected{background:var(--info-bg);border-color:var(--info-border);color:var(--info-text)}
 .pdots{display:flex;gap:4px;margin-bottom:12px}
 .dot{width:18px;height:4px;border-radius:2px;background:var(--border)}
 .dot.done{background:var(--text)}
@@ -1067,10 +1069,17 @@ const quiz=[
   {q:"A structured data extraction tool keeps hallucinating values for fields that aren't present in source documents. What's the fix?",opts:["Add 'never hallucinate' to the system prompt","Lower the model temperature","Use 'type': ['string', 'null'] for potentially absent fields and require null when info is absent","Add validation and retry with a better prompt"],ans:2,exp:"The nullable field pattern ('type': ['string', 'null']) prevents Claude from fabricating values by giving it a valid, honest alternative to hallucination. The rule is: absent information → return null, never hallucinate. This is a tool schema design fix, not a prompt engineering fix."},
 ];
 
-let qi=0,answered=false,scores={};
+let qi=0,confirmed=false,scores={},picks={};
 function renderQuiz(){
   const q=quiz[qi];
-  const dots=quiz.map((_,i)=>`<div class="dot${i<qi?' done':i===qi?' cur':''}"></div>`).join('');
+  const wasConfirmed=confirmed=qi in scores;
+  const pick=picks[qi];
+  const dots=quiz.map((_,i)=>{
+    let cls='dot';
+    if(i===qi)cls+=' cur';
+    else if(i in scores)cls+=' done';
+    return `<div class="${cls}"></div>`;
+  }).join('');
   document.getElementById('quiz-container').innerHTML=`
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <span style="font-size:12px;color:var(--text3)">Question ${qi+1} of ${quiz.length}</span>
@@ -1080,23 +1089,42 @@ function renderQuiz(){
     <div class="quiz-q">${q.q}</div>
     <div id="opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answer(${i})">${o}</button>`).join('')}</div>
     <div class="qfb" id="qfb"></div>
-    <button class="next-btn" id="nxt" onclick="nextQ()">${qi<quiz.length-1?'Next question →':'See results'}</button>`;
-  answered=false;
+    <div class="quiz-nav">
+      <button class="prev-btn" id="prv" onclick="prevQ()">← Previous</button>
+      <button class="next-btn" id="nxt" onclick="nextQ()">${qi<quiz.length-1?'Next question →':'See results'}</button>
+    </div>`;
+  if(qi>0)document.getElementById('prv').style.display='inline-block';
+  if(wasConfirmed)showConfirmed(pick,q);
+  else if(pick!==undefined)highlightPick(pick);
 }
-function answer(i){
-  if(answered)return;
-  answered=true;
-  const q=quiz[qi];
-  scores[qi]=(i===q.ans);
+function highlightPick(i){
+  const opts=document.querySelectorAll('.quiz-opt');
+  opts.forEach((o,idx)=>{o.classList.toggle('selected',idx===i);});
+  document.getElementById('nxt').style.display='inline-block';
+}
+function showConfirmed(pick,q){
   const opts=document.querySelectorAll('.quiz-opt');
   opts.forEach((o,idx)=>{o.classList.add(idx===q.ans?'correct':'wrong');o.disabled=true;});
   const fb=document.getElementById('qfb');
   fb.style.display='block';
-  fb.className='qfb '+(i===q.ans?'qfb-ok':'qfb-bad');
-  fb.textContent=(i===q.ans?'✓ Correct. ':'✗ Incorrect. ')+q.exp;
+  fb.className='qfb '+(pick===q.ans?'qfb-ok':'qfb-bad');
+  fb.textContent=(pick===q.ans?'✓ Correct. ':'✗ Incorrect. ')+q.exp;
   document.getElementById('nxt').style.display='inline-block';
 }
+function answer(i){
+  if(confirmed)return;
+  picks[qi]=i;
+  highlightPick(i);
+}
 function nextQ(){
+  if(!(qi in scores)){
+    if(picks[qi]===undefined)return;
+    const q=quiz[qi];
+    scores[qi]=(picks[qi]===q.ans);
+    confirmed=true;
+    showConfirmed(picks[qi],q);
+    return;
+  }
   qi++;
   if(qi>=quiz.length){
     const sc=Object.values(scores).filter(Boolean).length;
@@ -1104,9 +1132,12 @@ function nextQ(){
     document.getElementById('quiz-container').innerHTML=`<div style="text-align:center;padding:40px 0">
       <div style="font-size:44px;font-weight:500;margin-bottom:6px">${sc}/${quiz.length}</div>
       <p style="color:var(--text2);font-size:14px;margin-bottom:20px">${msg}</p>
-      <button class="quiz-opt" style="max-width:200px;margin:0 auto;display:block" onclick="qi=0;scores={};renderQuiz()">Restart quiz</button>
+      <button class="quiz-opt" style="max-width:200px;margin:0 auto;display:block" onclick="qi=0;scores={};picks={};renderQuiz()">Restart quiz</button>
     </div>`;
   } else { renderQuiz(); }
+}
+function prevQ(){
+  if(qi>0){qi--;renderQuiz();}
 }
 function show(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
