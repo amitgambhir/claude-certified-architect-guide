@@ -142,6 +142,7 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
 <div class="nav-wrap">
 <div class="nav" id="nav">
   <button class="nav-btn active" onclick="show('overview')">Overview</button>
+  <button class="nav-btn" onclick="show('examinfo')" style="border-color:#378ADD;color:#185FA5">📋 Official Exam Info</button>
   <button class="nav-btn" onclick="show('messages')">1. Messages API</button>
   <button class="nav-btn" onclick="show('tools')">2. Tool Design</button>
   <button class="nav-btn" onclick="show('errors')">3. Error Handling</button>
@@ -158,6 +159,84 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
 </div>
 </div>
 
+<!-- ═══ EXAM INFO ═══ -->
+<div id="s-examinfo" class="section">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:4px">📋 Official Exam Details</h2>
+  <p style="font-size:13px;color:var(--text2);margin-bottom:16px">Claude Certified Architect – Foundations (CCA) · Launched March 12, 2026</p>
+
+  <div class="grid4" style="margin-bottom:16px">
+    <div class="metric"><div class="lbl">Questions</div><div class="val">60 MCQ</div></div>
+    <div class="metric"><div class="lbl">Duration</div><div class="val">120 minutes</div></div>
+    <div class="metric"><div class="lbl">Passing score</div><div class="val">720 / 1000</div></div>
+    <div class="metric"><div class="lbl">Exam fee</div><div class="val">$99</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">The 5 official exam domains</div><div class="cs">With weightings — this is what the exam actually tests</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><th>Domain</th><th>Topic</th><th class="v2">Weight</th></tr>
+        <tr><td>Domain 1</td><td>Agentic Architecture & Orchestration</td><td><strong>27%</strong></td></tr>
+        <tr><td>Domain 2</td><td>Tool Design & MCP Integration</td><td><strong>18%</strong></td></tr>
+        <tr><td>Domain 3</td><td>Claude Code Configuration & Workflows</td><td><strong>20%</strong></td></tr>
+        <tr><td>Domain 4</td><td>Prompt Engineering & Structured Output</td><td><strong>20%</strong></td></tr>
+        <tr><td>Domain 5</td><td>Context Management & Reliability</td><td><strong>15%</strong></td></tr>
+      </table>
+      <div class="alert info" style="margin-top:10px"><p>Domains 1 and 3 together account for <strong>47%</strong> of the exam. The single most tested concept across the entire exam is <strong>programmatic enforcement vs. prompt-based enforcement</strong>.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">The 6 exam scenarios</div><div class="cs">4 of 6 are randomly selected on your sitting — study all 6</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><th>#</th><th>Scenario</th><th class="v2">Primary domains</th></tr>
+        <tr><td>1</td><td>Customer Support Resolution Agent</td><td>1, 2, 5</td></tr>
+        <tr><td>2</td><td>Code Generation with Claude Code</td><td>2, 3, 1</td></tr>
+        <tr><td>3</td><td>Multi-Agent Research System</td><td>1, 5, 4</td></tr>
+        <tr><td>4</td><td>Developer Productivity with Claude</td><td>3, 1, 2</td></tr>
+        <tr><td>5</td><td>Claude Code for CI/CD</td><td>3, 4</td></tr>
+        <tr><td>6</td><td>Structured Data Extraction</td><td>4, 2, 5</td></tr>
+      </table>
+      <div class="alert warn" style="margin-top:10px"><p>Each question is framed inside one of these production systems. You answer as the architect of that specific system — not in the abstract. Every question has one correct and three distractor responses.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Format, scoring & access</div><div class="cs">What to expect on exam day</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td>Format</td><td>60 multiple-choice questions · closed-book · no AI assistance</td></tr>
+        <tr><td>Scoring</td><td>Scaled score 100–1,000 · passing score 720 · results within 2 business days</td></tr>
+        <tr><td>Fee</td><td>$99 · free for the first 5,000 Claude Partner Network employees</td></tr>
+        <tr><td>Access</td><td>Register through Anthropic Academy on Skilljar via the Claude Partner Network</td></tr>
+        <tr><td>Experience req.</td><td>6+ months hands-on experience with Claude API and Claude Code recommended</td></tr>
+        <tr><td>Exam level</td><td>"~301 level" — tests architectural judgment, not prompting literacy</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Official preparation resources</div><div class="cs">All 13 Anthropic Academy courses are free — no paid subscription needed</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <ul>
+        <li><strong>Building with the Claude API</strong> — 8.1-hour flagship course. Full spectrum from Messages API to advanced agentic architectures and RAG pipelines.</li>
+        <li><strong>Introduction to Model Context Protocol</strong> — covers MCP fundamentals, tools, resources, and prompts. Maps directly to Domain 2.</li>
+        <li><strong>Claude Code developer training</strong> — covers Claude Code configuration, workflows, and skills. Maps to Domain 3 (20% weight).</li>
+        <li><strong>AI Fluency: Frameworks & Foundations</strong> — principles of effective AI collaboration and responsible system design.</li>
+        <li><strong>Claude Code on Coursera</strong> — part of the Generative AI Software Engineering Specialization (Vanderbilt University).</li>
+      </ul>
+      <div class="alert success" style="margin-top:10px"><p>All 13 Anthropic Academy courses are free and open to everyone at <strong>anthropic.skilljar.com</strong> — no paid Claude subscription or partner access required to study.</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:14px 16px;border:1px solid var(--blue-border);border-radius:var(--radius-lg);background:var(--blue-bg)">
+    <p style="font-size:13px;color:var(--blue-text);line-height:1.6;margin-bottom:8px"><strong>Ready to register?</strong> Join the Claude Partner Network (free for any organization) and request exam access through Anthropic Academy on Skilljar.</p>
+    <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" style="font-size:13px;color:var(--blue-text);font-weight:500;text-decoration:none;border:1px solid var(--blue-border);padding:6px 14px;border-radius:20px;display:inline-block;margin-right:8px;margin-top:4px">Claude Partner Network →</a>
+    <a href="https://anthropic.skilljar.com" target="_blank" style="font-size:13px;color:var(--blue-text);font-weight:500;text-decoration:none;border:1px solid var(--blue-border);padding:6px 14px;border-radius:20px;display:inline-block;margin-top:4px">Anthropic Academy →</a>
+  </div>
+</div>
+
 <!-- ═══ OVERVIEW ═══ -->
 <div id="s-overview" class="section active">
   <div class="grid4">
@@ -165,6 +244,9 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
     <div class="metric"><div class="lbl">Top area</div><div class="val">Agent SDK (27%)</div></div>
     <div class="metric"><div class="lbl">Tools + MCP</div><div class="val">18% each</div></div>
     <div class="metric"><div class="lbl">Core model</div><div class="val">Stateless API</div></div>
+  </div>
+  <div style="background:var(--info-bg);border-left:3px solid var(--info-border);border-radius:0 6px 6px 0;padding:10px 14px;margin-bottom:14px">
+    <p style="font-size:13px;color:var(--info-text);line-height:1.6"><strong>Note on structure:</strong> The official Claude Certified Architect – Foundations exam has <strong>5 domains</strong> (Agentic Architecture & Orchestration, Tool Design & MCP Integration, Claude Code Configuration & Workflows, Prompt Engineering & Structured Output, and Context Management & Reliability). This guide breaks those domains into <strong>10 sections</strong> for easier navigation — for example, Messages API, Stop Reasons, and the Agent SDK each get their own page rather than being grouped into one broad section. The content maps directly to the official 5 domains; it's just more granular.</p>
   </div>
   <p style="font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.6">Focus on <strong>trade-offs</strong> — not just what, but why one approach over another. Click any domain to jump to its notes.</p>
   <div id="domain-cards"></div>
@@ -1010,7 +1092,7 @@ function show(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('s-'+id).classList.add('active');
-  const order=['overview','messages','tools','errors','context','agentskills','agentsdk','mcp','prompts','agentic','workflow','gotchas','quiz','cheat'];
+  const order=['overview','examinfo','messages','tools','errors','context','agentskills','agentsdk','mcp','prompts','agentic','workflow','gotchas','quiz','cheat'];
   const idx=order.indexOf(id);
   if(idx>=0)document.querySelectorAll('.nav-btn')[idx].classList.add('active');
   if(id==='quiz')renderQuiz();
