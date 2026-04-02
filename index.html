@@ -131,6 +131,8 @@ table.kv td.v2{width:32%}
 .gt td:first-child{color:var(--text);font-size:12px;width:36%}
 .gt td:nth-child(2){color:var(--green-text);font-weight:500;font-size:12px;width:34%}
 .gt td:nth-child(3){color:var(--red-text);font-size:12px}
+#s-resources .kv a{color:var(--teal-text);text-decoration:none;font-weight:500}
+#s-resources .kv a:hover{text-decoration:underline}
 footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;padding-top:20px;border-top:1px solid var(--border)}
 </style>
 </head>
@@ -158,6 +160,7 @@ footer{text-align:center;font-size:12px;color:var(--text3);margin-top:48px;paddi
   <button class="nav-btn" onclick="show('gotchas')">⚡ Traps & Gotchas</button>
   <button class="nav-btn" onclick="show('quiz')">Self-test Quiz</button>
   <button class="nav-btn" onclick="show('cheat')">Cheat Sheet</button>
+  <button class="nav-btn" onclick="show('resources')">📚 Resources</button>
 </div>
 </div>
 
@@ -1011,6 +1014,67 @@ options = ClaudeAgentOptions(<span class="kw">max_budget_usd</span>=0.50)
   </div>
 </div>
 
+<div id="s-resources" class="section">
+  <h2 style="font-size:18px;font-weight:500;margin-bottom:4px">📚 Recommended Reading &amp; Resources</h2>
+  <p style="font-size:13px;color:var(--text2);margin-bottom:16px">Curated links to official docs, specs, and guides that map directly to exam topics.</p>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Official Documentation</div><div class="cs">Core Anthropic docs covering tools, prompts, and the Agent SDK</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td style="min-width:200px"><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview" target="_blank" rel="noopener">Tool Use</a></td><td>Designing and using tools with Claude — parameter schemas, descriptions, and error handling</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts" target="_blank" rel="noopener">System Prompts</a></td><td>Best practices for writing effective system prompts</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">Prompt Engineering</a></td><td>Clarity, examples, structure, and formatting techniques</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/long-context-tips" target="_blank" rel="noopener">Long Context Tips</a></td><td>Working with long context and conversation management</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/claude-code-sdk-overview" target="_blank" rel="noopener">Claude Agent SDK</a></td><td>Building developer productivity tools and agents with the SDK</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Model Context Protocol (MCP)</div><div class="cs">Spec, reference implementations, and integration guides</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td style="min-width:200px"><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">MCP Specification</a></td><td>Official spec — transport mechanisms, tool discovery, error handling tiers, and trust model</td></tr>
+        <tr><td><a href="https://github.com/modelcontextprotocol" target="_blank" rel="noopener">MCP GitHub</a></td><td>Reference implementations, example servers, and community resources</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp" target="_blank" rel="noopener">MCP Overview</a></td><td>Anthropic's guide to integrating MCP servers with Claude</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Agentic Patterns &amp; Architecture</div><div class="cs">Design patterns, cookbooks, and hands-on tutorials</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td style="min-width:200px"><a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener">Building Effective Agents</a></td><td>Agentic design patterns — prompt chaining, routing, and orchestrator-workers</td></tr>
+        <tr><td><a href="https://github.com/anthropics/anthropic-cookbook/tree/main/tool_use" target="_blank" rel="noopener">Cookbook: Tool Use</a></td><td>Practical examples of tool design, error handling, and multi-step workflows</td></tr>
+        <tr><td><a href="https://github.com/anthropics/courses/tree/master/prompt_engineering_interactive_tutorial" target="_blank" rel="noopener">Prompt Engineering Tutorial</a></td><td>Hands-on tutorial covering prompt structure and system prompt design</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Foundational Concepts</div><div class="cs">Messages API, caching, and extended thinking</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td style="min-width:200px"><a href="https://docs.anthropic.com/en/api/messages" target="_blank" rel="noopener">Messages API</a></td><td>Stateless API model, message structure, and conversation history</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching" target="_blank" rel="noopener">Prompt Caching</a></td><td>How prompt caching reduces costs for repeated context</td></tr>
+        <tr><td><a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking" target="_blank" rel="noopener">Extended Thinking</a></td><td>Model reasoning capabilities, relevant to agentic decision-making</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ch" onclick="tog(this)"><div><div class="ct">Claude Code</div><div class="cs">CLI reference, session management, and best practices</div></div><span class="ti">+</span></div>
+    <div class="cb">
+      <table class="kv">
+        <tr><td style="min-width:200px"><a href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview" target="_blank" rel="noopener">Claude Code Docs</a></td><td>Complete reference — CLI, session management, sub-agents, built-in tools, and CLAUDE.md files</td></tr>
+        <tr><td><a href="https://www.anthropic.com/engineering/claude-code-best-practices" target="_blank" rel="noopener">Claude Code Best Practices</a></td><td>Practical guidance for getting the most from Claude Code</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
 <footer>Built by <a href="https://github.com/amitgambhir" style="color:var(--text3)">Amit Gambhir</a> · <a href="https://github.com/amitgambhir/claude-certified-architect-guide/blob/main/LICENSE" style="color:var(--text3)">MIT License</a> · <a href="https://github.com/amitgambhir/claude-certified-architect-guide" style="color:var(--text3)">Source on GitHub</a></footer>
 </div>
 
@@ -1143,7 +1207,7 @@ function show(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('s-'+id).classList.add('active');
-  const order=['overview','examinfo','messages','tools','errors','mcp','agentskills','agentsdk','agentic','workflow','prompts','context','gotchas','quiz','cheat'];
+  const order=['overview','examinfo','messages','tools','errors','mcp','agentskills','agentsdk','agentic','workflow','prompts','context','gotchas','quiz','cheat','resources'];
   const idx=order.indexOf(id);
   if(idx>=0)document.querySelectorAll('.nav-btn')[idx].classList.add('active');
   if(id==='quiz')renderQuiz();
