@@ -1,6 +1,6 @@
 # 2. Tool Interface Design
 
-Domain 2 (18%) — Tool Design & MCP Integration
+**Domain 2 (18%) — Tool Design & MCP Integration**
 
 ??? note "Descriptions drive tool selection — KEY EXAM TOPIC"
 

@@ -1,6 +1,6 @@
 # 3. Error Handling in Agent Tools
 
-Domain 1 (18%) — Tool Design & MCP Integration
+**Domain 1 (18%) — Tool Design & MCP Integration**
 
 ??? note "The three error categories"
 

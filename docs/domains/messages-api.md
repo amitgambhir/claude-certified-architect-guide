@@ -1,6 +1,6 @@
 # 1. Messages API & Stop Reasons
 
-Maps to Domain 1 & 5 — foundational for everything
+**Domain 1 & 5 (18%) — foundational for everything**
 
 ??? note "Stop reasons — memorize all 7"
 

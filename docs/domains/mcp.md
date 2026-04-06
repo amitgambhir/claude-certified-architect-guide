@@ -1,6 +1,6 @@
 # 4. Model Context Protocol (MCP)
 
-Domain 1 (18%) — Tool Design & MCP Integration
+**Domain 1 (18%) — Tool Design & MCP Integration**
 
 ??? note "MCP core concepts"
 
