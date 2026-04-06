@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }).join('');
     container.innerHTML=`
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <span style="font-size:12px;color:var(--text3)">Question ${qi+1} of ${quiz.length}</span>
-        <span style="font-size:12px;color:var(--text3)">${Object.keys(scores).length} answered</span>
+        <span style="font-size:12px;color:var(--md-default-fg-color--light)">Question ${qi+1} of ${quiz.length}</span>
+        <span style="font-size:12px;color:var(--md-default-fg-color--light)">${Object.keys(scores).length} answered</span>
       </div>
       <div class="pdots">${dots}</div>
       <div class="quiz-q">${q.q}</div>
@@ -87,14 +87,18 @@ document.addEventListener('DOMContentLoaded', function() {
       const msg=sc>=13?'Excellent — exam-ready.':sc>=10?'Good — review missed sections.':'Keep studying — focus on Agent SDK and Tool Design.';
       container.innerHTML=`<div style="text-align:center;padding:40px 0">
         <div style="font-size:44px;font-weight:500;margin-bottom:6px">${sc}/${quiz.length}</div>
-        <p style="color:var(--text2);font-size:14px;margin-bottom:20px">${msg}</p>
-        <button class="quiz-opt" style="max-width:200px;margin:0 auto;display:block" onclick="qi=0;scores={};picks={};renderQuiz()">Restart quiz</button>
+        <p style="color:var(--md-default-fg-color--lighter);font-size:14px;margin-bottom:20px">${msg}</p>
+        <button class="quiz-opt" style="max-width:200px;margin:0 auto;display:block" onclick="restartQuiz()">Restart quiz</button>
       </div>`;
     } else { renderQuiz(); }
   };
 
   window.prevQ = function(){
     if(qi>0){qi--;renderQuiz();}
+  };
+
+  window.restartQuiz = function(){
+    qi=0;scores={};picks={};confirmed=false;renderQuiz();
   };
 
   renderQuiz();
