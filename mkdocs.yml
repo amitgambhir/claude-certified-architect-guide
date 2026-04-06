@@ -1,0 +1,81 @@
+site_name: Claude Certified Architect — Exam Prep Guide
+site_description: Study guide for the Claude Certified Architect exam covering all 10 domains, quiz, traps & gotchas, and cheat sheet.
+site_url: https://amitgambhir.github.io/claude-certified-architect-guide/
+repo_url: https://github.com/amitgambhir/claude-certified-architect-guide
+repo_name: amitgambhir/claude-certified-architect-guide
+
+theme:
+  name: material
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: white
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: grey
+      accent: grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.path
+    - navigation.tracking
+    - content.code.copy
+    - content.tooltips
+    - search.highlight
+    - search.suggest
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/custom.css
+
+extra_javascript:
+  - javascripts/quiz.js
+
+plugins:
+  - search
+
+nav:
+  - Overview: index.md
+  - Official Exam Info: exam-info.md
+  - Exam Domains:
+    - 1. Messages API & Stop Reasons: domains/messages-api.md
+    - 2. Tool Interface Design: domains/tool-design.md
+    - 3. Error Handling: domains/error-handling.md
+    - 4. MCP: domains/mcp.md
+    - 5. Agent Skills — Claude Code: domains/agent-skills.md
+    - 6. Agent SDK: domains/agent-sdk.md
+    - 7. Agentic Patterns: domains/agentic-patterns.md
+    - 8. Workflow Design: domains/workflow-design.md
+    - 9. Prompt Engineering: domains/prompt-engineering.md
+    - 10. Context Management: domains/context-management.md
+  - Traps & Gotchas: gotchas.md
+  - Self-test Quiz: quiz.md
+  - Cheat Sheet: cheat-sheet.md
+  - Resources: resources.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - attr_list
+  - md_in_html
+
+copyright: Built by <a href="https://github.com/amitgambhir">Amit Gambhir</a> · <a href="https://github.com/amitgambhir/claude-certified-architect-guide/blob/main/LICENSE">MIT License</a> · <a href="https://github.com/amitgambhir/claude-certified-architect-guide">Source on GitHub</a>
