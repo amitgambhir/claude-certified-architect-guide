@@ -24,6 +24,35 @@ nav.md-nav--primary .md-nav__item--section > .md-nav__link {
   color: #90CAF9;
 }
 
+/* Softer admonition borders — less prominent than default dark blue */
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .admonition > .admonition-title,
+.md-typeset details > summary {
+  background-color: transparent;
+}
+
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before,
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  --md-admonition-fg-color: var(--md-default-fg-color--light);
+  --md-admonition-bg-color: transparent;
+  border-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .info > .admonition-title::before,
+.md-typeset .info > summary::before,
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  --md-admonition-fg-color: var(--md-default-fg-color--light);
+  --md-admonition-bg-color: transparent;
+  border-color: var(--md-default-fg-color--lightest);
+}
+
 /* Hide source repo metadata line */
 .md-source__facts {
   display: none !important;
