@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+function initQuiz() {
   var container = document.getElementById('quiz-container');
   if (!container) return;
 
@@ -102,4 +102,12 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   renderQuiz();
-});
+}
+
+// Support both initial load and MkDocs Material instant navigation
+if (typeof document$ !== 'undefined') {
+  // MkDocs Material instant loading mode
+  document$.subscribe(initQuiz);
+} else {
+  document.addEventListener('DOMContentLoaded', initQuiz);
+}
