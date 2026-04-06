@@ -7,5 +7,6 @@ Thumbs.db
 site/
 .venv/
 .superpowers/
+docs/superpowers/
 *.pdf
 index.html
