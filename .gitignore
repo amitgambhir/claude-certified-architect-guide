@@ -6,3 +6,6 @@ Thumbs.db
 *CLAUDE.md
 site/
 .venv/
+.superpowers/
+*.pdf
+index.html
