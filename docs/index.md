@@ -17,7 +17,7 @@ Focus on **trade-offs** — not just what, but why one approach over another. Cl
 | # | Domain | Exam Weight | Key Topics |
 |---|---|---|---|
 | 1 | [Messages API & Stop Reasons](domains/messages-api.md) | 18% | stop reasons, tool_choice, tool use loop, parallel tools |
-| 2 | [Tool Interface Design](domains/tool-interface-design.md) | 18% | descriptions, nullable fields, tool_use > JSON, two-tool safety |
+| 2 | [Tool Interface Design](domains/tool-design.md) | 18% | descriptions, nullable fields, tool_use > JSON, two-tool safety |
 | 3 | [Error Handling](domains/error-handling.md) | 18% | transient, permanent, uncertain state, isError flag |
 | 4 | [MCP — Model Context Protocol](domains/mcp.md) | 18% | mcp.json, API connector, descriptions, trust model |
 | 5 | [Agent Skills — Claude Code](domains/agent-skills.md) | 20% | CLAUDE.md hierarchy, path-scoped rules, context: fork, plan mode |
