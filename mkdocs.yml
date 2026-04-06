@@ -50,7 +50,7 @@ plugins:
 nav:
   - Overview: index.md
   - Official Exam Info: exam-info.md
-  - Exam Domains:
+  - Guide Sections:
     - 1. Messages API & Stop Reasons: domains/messages-api.md
     - 2. Tool Interface Design: domains/tool-design.md
     - 3. Error Handling: domains/error-handling.md
